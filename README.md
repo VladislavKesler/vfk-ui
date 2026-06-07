@@ -13,7 +13,7 @@ src/components/
   layout/       # Structural: Header, Footer, Navigation, Dialog, Grid
 ```
 
-Full component catalog: [`struktur.md`](struktur.md)
+Full component catalog: [`structure.md`](structure.md)
 
 ## Getting Started
 

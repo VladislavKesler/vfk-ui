@@ -47,9 +47,21 @@ describe('VfkButton', () => {
 - Test descriptions read as specifications: `'emits click event when clicked'`
 - No `setTimeout` or arbitrary waits — use `await nextTick()` or `flushPromises()`
 
+## Vitest Projects
+
+Vitest runs two projects defined in `vitest.config.ts`:
+
+| Project      | Command               | Environment | Used by     |
+| ------------ | --------------------- | ----------- | ----------- |
+| `unit`       | `npm run test:unit`   | jsdom       | CI, local   |
+| `storybook`  | `npm run test`        | Playwright  | local only  |
+
+**Always use `npm run test:unit` in CI** — the `storybook` project requires Playwright browser binaries that are not available in the GitHub Actions runner. Adding a new test script to CI must use `vitest --project=unit`.
+
 ## Avoid
 - Testing internal implementation details (private refs, method names)
 - Snapshot tests for component markup (brittle, low signal)
 - Mocking Vue itself or `@vue/test-utils` internals
 - Duplicating interaction tests already covered by Storybook's `play()` function — add value, don't repeat
 - Tests that pass trivially (asserting the component mounts without asserting anything meaningful)
+- Using `npm run test` in CI — it triggers the Playwright browser project and will fail without binaries

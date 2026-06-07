@@ -1,0 +1,36 @@
+:root {
+  /* Brand */
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-active: #1e40af;
+  --color-primary-subtle: #eff6ff;
+
+  /* Neutral / Surface */
+  --color-surface: #ffffff;
+  --color-surface-raised: #f8fafc;
+  --color-surface-overlay: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-border-strong: #94a3b8;
+
+  /* Text */
+  --color-text: #0f172a;
+  --color-text-muted: #64748b;
+  --color-text-on-primary: #ffffff;
+  --color-text-disabled: #94a3b8;
+
+  /* Semantic — success */
+  --color-success: #16a34a;
+  --color-success-subtle: #f0fdf4;
+
+  /* Semantic — warning */
+  --color-warning: #d97706;
+  --color-warning-subtle: #fffbeb;
+
+  /* Semantic — danger */
+  --color-danger: #dc2626;
+  --color-danger-subtle: #fef2f2;
+
+  /* Semantic — info */
+  --color-info: #0284c7;
+  --color-info-subtle: #f0f9ff;
+}

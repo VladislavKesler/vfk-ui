@@ -8,9 +8,9 @@
 - [x] Vue 3 + Vite + TypeScript project scaffolded (`npm create vue@latest`)
 - [x] Vitest configured
 - [x] ESLint + Prettier configured
-- [ ] Storybook installed and configured
-- [ ] GitHub repository connected and branch protection enabled on `main`
-- [ ] Design tokens defined — CSS Custom Properties for colors, spacing, and typography
+- [x] Storybook installed and configured
+- [x] GitHub repository connected and branch protection enabled on `main`
+- [x] Design tokens defined — CSS Custom Properties for colors, spacing, and typography
 
 ---
 

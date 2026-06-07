@@ -8,6 +8,7 @@
     "../eslint.config.*"
   ],
   "compilerOptions": {
+    "lib": ["ES2024", "ESNext.Array", "ESNext.Collection", "ESNext.Iterator", "ESNext.Promise"],
     "module": "preserve",
     "moduleResolution": "bundler",
     "types": ["node"],

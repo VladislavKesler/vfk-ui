@@ -33,3 +33,6 @@ __screenshots__/
 
 # Vite
 *.timestamp-*-*.mjs
+
+*storybook.log
+storybook-static

@@ -1,6 +1,6 @@
 # vfk-ui
 
-**Vue 3 component library** — Vite · TypeScript · Storybook 8 · Vitest. Three-tier hierarchy: `elements/` (atomic) → `fragments/` (composed) → `layout/` (structural). Component catalog in [`structure.md`](structure.md) — always translate patterns to Vue 3 `<script setup>`.
+**Vue 3 component library** — Vite · TypeScript · Storybook 8 · Vitest. Three-tier hierarchy: `elements/` (atomic) → `fragments/` (composed) → `layout/` (structural). Component catalog in [`docs/structure.md`](docs/structure.md) — always translate patterns to Vue 3 `<script setup>`.
 
 ## Commands
 

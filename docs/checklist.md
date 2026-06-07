@@ -1,0 +1,40 @@
+# vfk-ui – Project Checklist
+
+## Phase 1 – Foundation
+
+- [x] CLAUDE.md, CONTEXT.md files created (conventions, commands, component checklist, git rules)
+- [x] README.md written and connected to structure.md
+- [x] structure.md — component catalog translated to English
+- [x] Vue 3 + Vite + TypeScript project scaffolded (`npm create vue@latest`)
+- [x] Vitest configured
+- [x] ESLint + Prettier configured
+- [ ] Storybook installed and configured
+- [ ] GitHub repository connected and branch protection enabled on `main`
+- [ ] Design tokens defined — CSS Custom Properties for colors, spacing, and typography
+
+---
+
+## Phase 2 – Elements
+
+- [ ] Button — variants: primary, secondary, icon
+- [ ] Badge
+- [ ] Toggle
+- [ ] Textfield
+- [ ] Date Picker
+
+---
+
+## Phase 3 – Fragments
+
+- [ ] Alert
+- [ ] Card
+- [ ] Notification
+
+---
+
+## Phase 4 – Portfolio Finish
+
+- [ ] Every component has a Storybook story
+- [ ] Every component has Interaction Tests
+- [ ] README.md reflects all implemented components and usage examples
+- [ ] Storybook deployed to GitHub Pages (shareable live demo link)

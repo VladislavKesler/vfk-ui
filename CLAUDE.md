@@ -1,15 +1,19 @@
 # vfk-ui
 
-**Vue 3 component library** — Vite · TypeScript · Storybook 8 · Vitest. Three-tier hierarchy: `elements/` (atomic) → `fragments/` (composed) → `layout/` (structural). Component catalog in [`docs/structure.md`](docs/structure.md) — always translate patterns to Vue 3 `<script setup>`.
+**Vue 3 component library** — Vite · TypeScript · Storybook 10 · Vitest. Three-tier hierarchy: `elements/` (atomic) → `fragments/` (composed) → `layout/` (structural). Component catalog in [`docs/structure.md`](docs/structure.md) — always translate patterns to Vue 3 `<script setup>`.
 
 ## Commands
 
-| Action     | Command             |
-| ---------- | ------------------- |
-| Dev server | `npm run dev`       |
-| Storybook  | `npm run storybook` |
-| Tests      | `npm run test`      |
-| Build      | `npm run build`     |
+| Action                      | Command                 |
+| --------------------------- | ----------------------- |
+| Dev server                  | `npm run dev`           |
+| Storybook                   | `npm run storybook`     |
+| Unit tests only (jsdom, CI) | `npm run test:unit`     |
+| All tests incl. Storybook   | `npm run test`          |
+| Build                       | `npm run build`         |
+
+> **CI uses `test:unit`** — runs only the `unit` Vitest project (jsdom, no browser binaries needed).
+> `npm run test` also runs the `storybook` Vitest project via Playwright and requires browser binaries.
 
 ## Folder Structure
 

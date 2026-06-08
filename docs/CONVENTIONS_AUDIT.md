@@ -1,6 +1,6 @@
 # Conventions Audit
 
-Audit date: 2026-06-06
+Audit date: 2026-06-08
 Audited against conventions defined in: `CLAUDE.md`
 
 ---
@@ -8,7 +8,12 @@ Audited against conventions defined in: `CLAUDE.md`
 ## Status
 
 ### Source files (src/)
-No source files exist yet. The project is at initial setup stage — `src/` will be created when the first component is built. All future files must follow the conventions from the start; there is no legacy code to migrate.
+
+| File | Status | Notes |
+|------|--------|-------|
+| `src/components/elements/vfk-button/VfkButton.vue` | ✅ Compliant | `<script setup lang="ts">`, CSS Custom Properties only, JSDoc, ARIA |
+| `src/stories/elements/VfkButton.stories.ts` | ✅ Compliant | CSF3, `@storybook/vue3-vite`, interaction tests, realistic args |
+| `src/tests/elements/VfkButton.spec.ts` | ✅ Compliant | 10 unit tests, behavior-focused, no snapshot tests |
 
 ### Documentation files
 
@@ -29,12 +34,15 @@ No source files exist yet. The project is at initial setup stage — `src/` will
 
 ---
 
-## Action Required Before First Component
+## Checklist — VfkButton (first component)
 
-When the first `.vue` file is created, verify:
-- [ ] Filename is `kebab-case` (folder) + `PascalCase` (component name): `vfk-button/VfkButton.vue`
-- [ ] `<script setup lang="ts">` at the top — no Options API, no class syntax
-- [ ] All style values use `var(--token-name)` — no literals
-- [ ] JSDoc block present
-- [ ] Story file created in `src/stories/`
-- [ ] Test file created in `src/tests/`
+- [x] Filename is `kebab-case` (folder) + `PascalCase` (component name): `vfk-button/VfkButton.vue`
+- [x] `<script setup lang="ts">` at the top — no Options API, no class syntax
+- [x] All style values use `var(--token-name)` — no literals
+- [x] JSDoc block present
+- [x] Story file created in `src/stories/elements/`
+- [x] Test file created in `src/tests/elements/`
+
+## Known ESLint Rule
+
+Stories must import `Meta`/`StoryObj` from `@storybook/vue3-vite` (the framework package), **not** `@storybook/vue3` (the renderer). Rule: `storybook/no-renderer-packages`.

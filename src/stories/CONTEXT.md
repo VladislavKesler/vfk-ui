@@ -22,7 +22,7 @@ src/stories/
 
 ## Story File Structure (CSF3)
 ```ts
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import VfkButton from '@/components/elements/vfk-button/VfkButton.vue'
 
 const meta: Meta<typeof VfkButton> = {

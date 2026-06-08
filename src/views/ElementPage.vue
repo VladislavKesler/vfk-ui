@@ -1,39 +1,110 @@
+<script setup lang="ts">
 /**
  * ElementPage
  *
- * Displays a placeholder page for an element-tier component.
- * Reads the `:component` route param and renders its name as a heading.
+ * Renders a live preview of an element-tier component.
+ * Reads the `:component` route param, looks it up in the registry,
+ * and renders each registered variant. Falls back to a placeholder
+ * when no component is registered yet.
  *
  * @param component - route param; the element component name to preview
  */
-<script setup lang="ts">
+import { computed, defineAsyncComponent } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
+
+interface Variant {
+  label: string
+  props: Record<string, unknown>
+}
+
+interface RegistryEntry {
+  component: ReturnType<typeof defineAsyncComponent>
+  variants: Variant[]
+}
+
+const registry: Record<string, RegistryEntry> = {
+  button: {
+    component: defineAsyncComponent(
+      () => import('@/components/elements/vfk-button/VfkButton.vue'),
+    ),
+    variants: [
+      { label: 'Primary', props: { label: 'Save changes', variant: 'primary' } },
+      { label: 'Secondary', props: { label: 'Cancel', variant: 'secondary' } },
+      { label: 'Disabled', props: { label: 'Save changes', variant: 'primary', disabled: true } },
+    ],
+  },
+}
+
+const componentName = computed(() => route.params.component as string)
+const entry = computed(() => registry[componentName.value] ?? null)
 </script>
 
 <template>
-  <div class="page">
-    <h1 class="page__title">{{ route.params.component }}</h1>
-    <p class="page__subtitle">Component preview coming soon.</p>
+  <div class="element-page">
+    <h1 class="element-page__title">{{ componentName }}</h1>
+
+    <template v-if="entry">
+      <div
+        v-for="variant in entry.variants"
+        :key="variant.label"
+        class="element-page__variant"
+      >
+        <span class="element-page__variant-label">{{ variant.label }}</span>
+        <div class="element-page__preview">
+          <component :is="entry.component" v-bind="variant.props" />
+        </div>
+      </div>
+    </template>
+
+    <p v-else class="element-page__placeholder">Component preview coming soon.</p>
   </div>
 </template>
 
 <style scoped>
-.page {
-  padding: var(--space-8);
+.element-page {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
 }
 
-.page__title {
-  font-size: var(--font-size-3xl);
+.element-page__title {
+  font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-4);
+  color: var(--color-text);
   text-transform: capitalize;
+  margin: 0;
 }
 
-.page__subtitle {
-  font-size: var(--font-size-base);
-  color: var(--color-text-secondary);
+.element-page__variant {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.element-page__variant-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.element-page__preview {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.element-page__placeholder {
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+  margin: 0;
 }
 </style>

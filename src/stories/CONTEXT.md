@@ -23,11 +23,13 @@ src/stories/
 ## Story File Structure (CSF3)
 ```ts
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
+import { expect, fn, userEvent, within } from 'storybook/test'
 import VfkButton from '@/components/elements/vfk-button/VfkButton.vue'
 
 const meta: Meta<typeof VfkButton> = {
   component: VfkButton,
   tags: ['autodocs'],
+  args: { onClick: fn() },
 }
 export default meta
 type Story = StoryObj<typeof VfkButton>

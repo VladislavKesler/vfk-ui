@@ -23,6 +23,7 @@
 | Write stories    | /src/stories    | [CONTEXT.md](src/stories/CONTEXT.md)    |
 | Design Tokens    | /src/styles     | [CONTEXT.md](src/styles/CONTEXT.md)     |
 | Tests            | /src/tests      | [CONTEXT.md](src/tests/CONTEXT.md)      |
+| Demo site views  | /src/views      | [CONTEXT.md](src/views/CONTEXT.md)      |
 
 ## Conventions
 
@@ -35,6 +36,36 @@
 - **Accessibility**: ARIA labels and keyboard navigation on all interactive components
 - **Reuse first**: Check existing components before building new; document the decision
 - **README**: Keep `README.md` up to date whenever components, commands, or setup steps change
+
+## Demo Site
+
+The `npm run dev` app is a live component browser — `SiteNav` on the left, component preview on the right.
+
+### Adding a component to the demo
+
+When a new component is ready, register it in the matching page view so it appears live in the browser:
+
+| Tier      | File to edit                          |
+| --------- | ------------------------------------- |
+| elements  | `src/views/ElementPage.vue` `registry` |
+| fragments | `src/views/FragmentPage.vue` `registry` |
+| layout    | `src/views/LayoutPage.vue` `registry`  |
+
+Each registry entry follows this shape:
+
+```ts
+'component-name': {
+  component: defineAsyncComponent(
+    () => import('@/components/elements/component-name/ComponentName.vue'),
+  ),
+  variants: [
+    { label: 'Default', props: { /* required props */ } },
+    { label: 'Disabled', props: { /* ... */ } },
+  ],
+},
+```
+
+Routes are already declared for all three tiers (`/elements/:component`, `/fragments/:component`, `/layout/:component`). Only the registry entry is needed — no router changes required.
 
 ## Component Checklist (required before every merge)
 

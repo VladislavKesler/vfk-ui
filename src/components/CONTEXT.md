@@ -24,6 +24,16 @@ elements/
     VfkButton.vue       ← <script setup lang="ts"> + <template> + <style scoped>
 ```
 
+## Connecting to the Demo Site
+
+After building a component, register it in the matching page view so it appears live in `npm run dev`:
+
+- Elements → `src/views/ElementPage.vue` registry
+- Fragments → `src/views/FragmentPage.vue` registry
+- Layout → `src/views/LayoutPage.vue` registry
+
+See `src/views/CONTEXT.md` for the registry shape and rules.
+
 ## Good Work Here Looks Like
 - Props fully typed with TypeScript interfaces; defaults set where appropriate
 - JSDoc block at the top of `<script setup>` (props, emitted events, usage example)

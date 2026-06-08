@@ -15,9 +15,9 @@ import SiteNav from '@/components/layout/site-nav/SiteNav.vue'
 
 <style scoped>
 .app-layout {
-  --sidebar-width: 240px;
+  --site-nav-width: 260px;
   display: grid;
-  grid-template-columns: var(--sidebar-width) 1fr;
+  grid-template-columns: var(--site-nav-width) 1fr;
   height: 100vh;
   overflow: hidden;
   background-color: var(--color-surface);
@@ -26,10 +26,11 @@ import SiteNav from '@/components/layout/site-nav/SiteNav.vue'
 .app-layout__sidebar {
   border-right: 1px solid var(--color-border);
   background-color: var(--color-surface-raised);
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .app-layout__content {
   overflow-y: auto;
+  padding: var(--space-lg);
 }
 </style>

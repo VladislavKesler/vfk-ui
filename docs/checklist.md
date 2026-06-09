@@ -18,7 +18,7 @@
 
 - [x] Button — variants: primary, secondary, icon
 - [x] Badge
-- [ ] Toggle
+- [x] Toggle
 - [ ] Textfield
 - [ ] Date Picker
 

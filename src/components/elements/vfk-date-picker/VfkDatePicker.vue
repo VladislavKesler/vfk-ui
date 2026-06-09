@@ -72,7 +72,7 @@ watch(
 )
 
 function parseISO(iso: string): Date {
-  const [y, m, d] = iso.split('-').map(Number)
+  const [y, m, d] = iso.split('-').map(Number) as [number, number, number]
   return new Date(y, m - 1, d)
 }
 

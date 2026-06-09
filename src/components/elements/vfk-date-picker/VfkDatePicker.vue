@@ -204,7 +204,7 @@ function nextMonth() {
 function onInputKeydown(event: KeyboardEvent) {
   if (event.key === 'Enter' || event.key === ' ') {
     event.preventDefault()
-    isOpen.value ? close() : open()
+    if (isOpen.value) { close() } else { open() }
   } else if (event.key === 'Escape') {
     close()
   }

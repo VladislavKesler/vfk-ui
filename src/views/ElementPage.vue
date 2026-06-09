@@ -48,6 +48,18 @@ const registry: Record<string, RegistryEntry> = {
       { label: 'Info', props: { label: 'Info', variant: 'info' } },
     ],
   },
+  toggle: {
+    component: defineAsyncComponent(
+      () => import('@/components/elements/vfk-toggle/VfkToggle.vue'),
+    ),
+    variants: [
+      { label: 'Off', props: { modelValue: false, label: 'Enable notifications' } },
+      { label: 'On', props: { modelValue: true, label: 'Enable notifications' } },
+      { label: 'Disabled Off', props: { modelValue: false, label: 'Unavailable option', disabled: true } },
+      { label: 'Disabled On', props: { modelValue: true, label: 'Always active', disabled: true } },
+      { label: 'No Label', props: { modelValue: false } },
+    ],
+  },
 }
 
 const componentName = computed(() => route.params.component as string)

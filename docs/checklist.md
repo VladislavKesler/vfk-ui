@@ -17,7 +17,7 @@
 ## Phase 2 – Elements
 
 - [x] Button — variants: primary, secondary, icon
-- [ ] Badge
+- [x] Badge
 - [ ] Toggle
 - [ ] Textfield
 - [ ] Date Picker

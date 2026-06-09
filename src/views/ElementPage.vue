@@ -48,6 +48,18 @@ const registry: Record<string, RegistryEntry> = {
       { label: 'Info', props: { label: 'Info', variant: 'info' } },
     ],
   },
+  'date-picker': {
+    component: defineAsyncComponent(
+      () => import('@/components/elements/vfk-date-picker/VfkDatePicker.vue'),
+    ),
+    variants: [
+      { label: 'Default', props: { modelValue: null, label: 'Date of birth' } },
+      { label: 'With Value', props: { modelValue: '2026-06-15', label: 'Date of birth' } },
+      { label: 'With Range', props: { modelValue: null, label: 'Booking date', min: '2026-06-01', max: '2026-06-30' } },
+      { label: 'Error', props: { modelValue: null, label: 'Appointment date', error: 'Please select a date.' } },
+      { label: 'Disabled', props: { modelValue: null, label: 'Locked date', disabled: true } },
+    ],
+  },
   textfield: {
     component: defineAsyncComponent(
       () => import('@/components/elements/vfk-textfield/VfkTextfield.vue'),

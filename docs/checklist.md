@@ -20,7 +20,7 @@
 - [x] Badge
 - [x] Toggle
 - [x] Textfield
-- [ ] Date Picker
+- [x] Date Picker
 
 ---
 

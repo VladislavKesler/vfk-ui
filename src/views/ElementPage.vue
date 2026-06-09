@@ -48,6 +48,18 @@ const registry: Record<string, RegistryEntry> = {
       { label: 'Info', props: { label: 'Info', variant: 'info' } },
     ],
   },
+  textfield: {
+    component: defineAsyncComponent(
+      () => import('@/components/elements/vfk-textfield/VfkTextfield.vue'),
+    ),
+    variants: [
+      { label: 'Default', props: { modelValue: '', label: 'Full name', placeholder: 'Jane Doe' } },
+      { label: 'With Value', props: { modelValue: 'Jane Doe', label: 'Full name' } },
+      { label: 'Email', props: { modelValue: '', label: 'Email address', placeholder: 'you@example.com', type: 'email' } },
+      { label: 'Error', props: { modelValue: '', label: 'Email address', placeholder: 'you@example.com', error: 'Please enter a valid email address.' } },
+      { label: 'Disabled', props: { modelValue: '', label: 'Username', placeholder: 'Not editable', disabled: true } },
+    ],
+  },
   toggle: {
     component: defineAsyncComponent(
       () => import('@/components/elements/vfk-toggle/VfkToggle.vue'),

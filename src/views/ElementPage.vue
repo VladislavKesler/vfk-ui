@@ -35,6 +35,19 @@ const registry: Record<string, RegistryEntry> = {
       { label: 'Disabled', props: { label: 'Save changes', variant: 'primary', disabled: true } },
     ],
   },
+  badge: {
+    component: defineAsyncComponent(
+      () => import('@/components/elements/vfk-badge/VfkBadge.vue'),
+    ),
+    variants: [
+      { label: 'Neutral', props: { label: 'Draft', variant: 'neutral' } },
+      { label: 'Primary', props: { label: 'New', variant: 'primary' } },
+      { label: 'Success', props: { label: 'Active', variant: 'success' } },
+      { label: 'Warning', props: { label: 'Pending', variant: 'warning' } },
+      { label: 'Danger', props: { label: 'Error', variant: 'danger' } },
+      { label: 'Info', props: { label: 'Info', variant: 'info' } },
+    ],
+  },
 }
 
 const componentName = computed(() => route.params.component as string)

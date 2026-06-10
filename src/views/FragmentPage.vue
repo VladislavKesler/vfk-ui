@@ -76,6 +76,20 @@ const registry: Record<string, RegistryEntry> = {
       },
     ],
   },
+  'status-badge': {
+    component: defineAsyncComponent(
+      () => import('@/components/fragments/vfk-status-badge/VfkStatusBadge.vue'),
+    ),
+    variants: [
+      { label: 'Eingereicht', props: { status: 'eingereicht' } },
+      { label: 'Ausstehend', props: { status: 'ausstehend' } },
+      { label: 'Fehlgeschlagen', props: { status: 'fehlgeschlagen' } },
+      {
+        label: 'Custom Label',
+        props: { status: 'fehlgeschlagen', label: 'Fehlgeschlagen am 10.06.2026' },
+      },
+    ],
+  },
   notification: {
     component: defineAsyncComponent(
       () => import('@/components/fragments/vfk-notification/VfkNotification.vue'),

@@ -54,7 +54,7 @@ const groups = [
       'alert',
       'card',
       'headline-text',
-      'metrics',
+      'metrics-card',
       'notification',
       'notification-container',
       'progress-bar',

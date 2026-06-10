@@ -59,6 +59,7 @@ const groups = [
       'notification-container',
       'progress-bar',
       'segment-control',
+      'status-badge',
       'sub-navigation-card',
       'teaser-card-contact',
       'teaser-card-icon',

@@ -26,13 +26,19 @@
 
 ## Phase 3 – Fragments
 
-- [ ] Alert
-- [ ] Card
-- [ ] Notification
+- [x] Alert — variants: info, success, warning, danger; dismissible prop
+- [ ] Card — variants: default, interactive (hover/clickable); slots: header, body, footer
+- [ ] Notification — variants: info, success, warning, danger; with title + description + dismiss
 
 ---
 
-## Phase 4 – Portfolio Finish
+## Phase 4 – Fragments
+
+- [ ] StatusBadge — extends Badge with semantic states: eingereicht, ausstehend, fehlgeschlagen
+- [ ] MetricsCard — KPI display with label, value, optional delta/trend indicator
+- [ ] DataTable — sortable, paginated table; used for the Audit-Log view
+
+## Phase 5 – Portfolio Finish
 
 - [ ] Every component has a Storybook story
 - [ ] Every component has Interaction Tests

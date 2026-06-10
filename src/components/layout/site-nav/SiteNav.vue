@@ -52,6 +52,7 @@ const groups = [
     basePath: '/fragments',
     items: [
       'alert',
+      'card',
       'headline-text',
       'metrics',
       'notification',

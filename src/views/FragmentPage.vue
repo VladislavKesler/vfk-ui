@@ -33,6 +33,12 @@ const VfkCard = defineAsyncComponent(
 const VfkButton = defineAsyncComponent(
   () => import('@/components/elements/vfk-button/VfkButton.vue'),
 )
+const VfkDataTable = defineAsyncComponent(
+  () => import('@/components/fragments/vfk-data-table/VfkDataTable.vue'),
+)
+const VfkStatusBadge = defineAsyncComponent(
+  () => import('@/components/fragments/vfk-status-badge/VfkStatusBadge.vue'),
+)
 
 const registry: Record<string, RegistryEntry> = {
   alert: {
@@ -137,6 +143,79 @@ const registry: Record<string, RegistryEntry> = {
           description: 'The file could not be uploaded. Please check your connection and try again.',
           variant: 'danger',
         },
+      },
+    ],
+  },
+  'data-table': {
+    component: VfkDataTable,
+    variants: [
+      {
+        label: 'Default',
+        props: {
+          columns: [
+            { key: 'name', label: 'Name', sortable: true },
+            { key: 'role', label: 'Role', sortable: true },
+            { key: 'department', label: 'Department' },
+          ],
+          rows: [
+            { name: 'Alice Mendes', role: 'Engineer', department: 'Platform' },
+            { name: 'Bruno Costa', role: 'Designer', department: 'Product' },
+            { name: 'Chen Wei', role: 'Engineer', department: 'Platform' },
+          ],
+        },
+      },
+      {
+        label: 'Pagination',
+        props: {
+          pageSize: 2,
+          columns: [
+            { key: 'name', label: 'Name', sortable: true },
+            { key: 'role', label: 'Role', sortable: true },
+          ],
+          rows: [
+            { name: 'Alice Mendes', role: 'Engineer' },
+            { name: 'Bruno Costa', role: 'Designer' },
+            { name: 'Chen Wei', role: 'Engineer' },
+            { name: 'Dana Frost', role: 'Manager' },
+            { name: 'Elif Aydin', role: 'Engineer' },
+          ],
+        },
+      },
+      {
+        label: 'Empty',
+        props: {
+          columns: [
+            { key: 'name', label: 'Name', sortable: true },
+            { key: 'role', label: 'Role', sortable: true },
+          ],
+          rows: [],
+        },
+      },
+      {
+        label: 'Audit Log',
+        render: () =>
+          h(
+            VfkDataTable,
+            {
+              caption: 'Audit Log',
+              columns: [
+                { key: 'timestamp', label: 'Timestamp', sortable: true },
+                { key: 'user', label: 'User', sortable: true },
+                { key: 'action', label: 'Action' },
+                { key: 'status', label: 'Status', sortable: true },
+              ],
+              rows: [
+                { timestamp: '2026-06-10 09:14', user: 'a.mendes', action: 'Login', status: 'eingereicht' },
+                { timestamp: '2026-06-10 09:02', user: 'b.costa', action: 'Export report', status: 'fehlgeschlagen' },
+                { timestamp: '2026-06-09 17:45', user: 'c.wei', action: 'Update settings', status: 'ausstehend' },
+                { timestamp: '2026-06-09 14:30', user: 'a.mendes', action: 'Delete record', status: 'eingereicht' },
+              ],
+            },
+            {
+              'cell-status': ({ value }: { value: string }) =>
+                h(VfkStatusBadge, { status: value as 'eingereicht' | 'ausstehend' | 'fehlgeschlagen' }),
+            },
+          ),
       },
     ],
   },

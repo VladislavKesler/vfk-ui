@@ -90,6 +90,17 @@ const registry: Record<string, RegistryEntry> = {
       },
     ],
   },
+  'metrics-card': {
+    component: defineAsyncComponent(
+      () => import('@/components/fragments/vfk-metrics-card/VfkMetricsCard.vue'),
+    ),
+    variants: [
+      { label: 'Default', props: { label: 'Open Tickets', value: '42' } },
+      { label: 'Trend Up', props: { label: 'Active Users', value: '1,284', delta: '+12.5%', trend: 'up' } },
+      { label: 'Trend Down', props: { label: 'Churn Rate', value: '2.4%', delta: '-0.6%', trend: 'down' } },
+      { label: 'Trend Neutral', props: { label: 'Avg. Session Duration', value: '4m 12s', delta: '±0.0%', trend: 'neutral' } },
+    ],
+  },
   notification: {
     component: defineAsyncComponent(
       () => import('@/components/fragments/vfk-notification/VfkNotification.vue'),

@@ -76,6 +76,45 @@ const registry: Record<string, RegistryEntry> = {
       },
     ],
   },
+  notification: {
+    component: defineAsyncComponent(
+      () => import('@/components/fragments/vfk-notification/VfkNotification.vue'),
+    ),
+    variants: [
+      {
+        label: 'Info',
+        props: {
+          title: 'New version available',
+          description: 'vfk-ui 1.2.0 has been published. Update your dependencies to get the latest components.',
+          variant: 'info',
+        },
+      },
+      {
+        label: 'Success',
+        props: {
+          title: 'Export complete',
+          description: 'Your report has been generated and is ready to download.',
+          variant: 'success',
+        },
+      },
+      {
+        label: 'Warning',
+        props: {
+          title: 'Session expiring',
+          description: 'Your session will expire in 5 minutes. Save your work to avoid losing changes.',
+          variant: 'warning',
+        },
+      },
+      {
+        label: 'Danger',
+        props: {
+          title: 'Upload failed',
+          description: 'The file could not be uploaded. Please check your connection and try again.',
+          variant: 'danger',
+        },
+      },
+    ],
+  },
 }
 
 const componentName = computed(() => route.params.component as string)

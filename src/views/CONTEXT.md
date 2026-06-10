@@ -40,10 +40,30 @@ const registry: Record<string, RegistryEntry> = {
 - **`variants`** — one entry per meaningful prop combination. `label` appears as an uppercase caption above the preview box. `props` are spread onto the component via `v-bind`.
 - Components not in the registry render a "coming soon" placeholder automatically.
 
+### Slot-based variants
+
+For components whose content is provided via slots (header/body/footer, etc.), a variant may
+define `render: () => VNode` instead of `props`. Build the VNode with Vue's `h()`, importing any
+nested components via `defineAsyncComponent` to keep them lazy-loaded:
+
+```ts
+{
+  label: 'With Header and Footer',
+  render: () =>
+    h(VfkCard, null, {
+      header: () => 'Project Alpha',
+      default: () => 'The quarterly report is ready for review.',
+      footer: () => h(VfkButton, { label: 'Open report' }),
+    }),
+}
+```
+
+The page template renders `<component :is="variant.render" v-if="variant.render" />`, falling
+back to `<component :is="entry.component" v-bind="variant.props" />` otherwise.
+
 ## Rules
 
 - Mirror story variants: if `VfkButton.stories.ts` has Primary / Secondary / Disabled, the registry should match those states.
-- Slot-based variants (e.g. icon buttons) require a custom `render` function — ask before adding one to keep the pattern consistent.
 - No hardcoded styles in page views — use `var(--token-name)` only.
 - Do not import Fragment or Layout components into `ElementPage`, and do not import Layout into `FragmentPage` — respect the tier hierarchy.
 

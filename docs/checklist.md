@@ -27,7 +27,7 @@
 ## Phase 3 – Fragments
 
 - [x] Alert — variants: info, success, warning, danger; dismissible prop
-- [ ] Card — variants: default, interactive (hover/clickable); slots: header, body, footer
+- [x] Card — variants: default, interactive (hover/clickable); slots: header, body, footer
 - [ ] Notification — variants: info, success, warning, danger; with title + description + dismiss
 
 ---

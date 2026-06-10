@@ -9,20 +9,30 @@
  *
  * @param component - route param; the fragment component name to preview
  */
-import { computed, defineAsyncComponent } from 'vue'
+import { computed, defineAsyncComponent, h, type VNode } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
 
 interface Variant {
   label: string
-  props: Record<string, unknown>
+  /** Props spread onto the registry component via v-bind. */
+  props?: Record<string, unknown>
+  /** For slot-based components: returns the fully rendered preview VNode. */
+  render?: () => VNode
 }
 
 interface RegistryEntry {
   component: ReturnType<typeof defineAsyncComponent>
   variants: Variant[]
 }
+
+const VfkCard = defineAsyncComponent(
+  () => import('@/components/fragments/vfk-card/VfkCard.vue'),
+)
+const VfkButton = defineAsyncComponent(
+  () => import('@/components/elements/vfk-button/VfkButton.vue'),
+)
 
 const registry: Record<string, RegistryEntry> = {
   alert: {
@@ -35,6 +45,35 @@ const registry: Record<string, RegistryEntry> = {
       { label: 'Warning', props: { message: 'Your session will expire in 5 minutes.', variant: 'warning' } },
       { label: 'Danger', props: { message: 'Unable to save changes. Please try again.', variant: 'danger' } },
       { label: 'Dismissible', props: { message: 'This alert can be dismissed.', variant: 'info', dismissible: true } },
+    ],
+  },
+  card: {
+    component: VfkCard,
+    variants: [
+      {
+        label: 'Default',
+        render: () =>
+          h(VfkCard, null, {
+            default: () => 'vfk-ui is a Vue 3 component library built with Vite, TypeScript, and Storybook.',
+          }),
+      },
+      {
+        label: 'With Header and Footer',
+        render: () =>
+          h(VfkCard, null, {
+            header: () => 'Project Alpha',
+            default: () => 'The quarterly report is ready for review.',
+            footer: () => h(VfkButton, { label: 'Open report' }),
+          }),
+      },
+      {
+        label: 'Interactive',
+        render: () =>
+          h(VfkCard, { variant: 'interactive' }, {
+            header: () => 'Project Alpha',
+            default: () => 'Click anywhere on this card to open the project.',
+          }),
+      },
     ],
   },
 }
@@ -55,7 +94,8 @@ const entry = computed(() => registry[componentName.value] ?? null)
       >
         <span class="fragment-page__variant-label">{{ variant.label }}</span>
         <div class="fragment-page__preview">
-          <component :is="entry.component" v-bind="variant.props" />
+          <component :is="variant.render" v-if="variant.render" />
+          <component :is="entry.component" v-else v-bind="variant.props" />
         </div>
       </div>
     </template>

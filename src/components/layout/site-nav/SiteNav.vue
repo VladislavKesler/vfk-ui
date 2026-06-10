@@ -53,6 +53,7 @@ const groups = [
     items: [
       'alert',
       'card',
+      'data-table',
       'headline-text',
       'metrics-card',
       'notification',

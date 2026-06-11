@@ -23,6 +23,15 @@ Full component catalog: [`structure.md`](structure.md)
 npm install
 ```
 
+## Design Tokens
+
+Visual design tokens (colors, typography, radius, shadow, spacing, easing) live
+in [`src/styles/tokens/`](src/styles/tokens/) as CSS Custom Properties — see
+[`src/styles/CONTEXT.md`](src/styles/CONTEXT.md). The current theme is
+**Meridian** (deep navy ink, azure accent, IBM Plex Sans/Mono). Fonts are
+loaded via `@fontsource/ibm-plex-sans` and `@fontsource/ibm-plex-mono`,
+imported once in [`src/main.ts`](src/main.ts).
+
 ## Development
 
 | Command | Description |

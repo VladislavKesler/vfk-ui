@@ -29,14 +29,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Links */
+/* Selection — Meridian ink */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+}
+
+/* Links — Meridian uses the azure accent, not the primary ink */
 a {
-  color: var(--color-primary);
+  color: var(--color-accent);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--color-primary-hover);
+  color: var(--color-accent-hover);
 }
 
 /* Images */

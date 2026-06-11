@@ -1,6 +1,9 @@
 :root {
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  /* Meridian — flat, line-led depth. Shadows stay barely-there;
+     separation is carried by 1px borders, not elevation.
+     Reserve real shadow only for true overlays (popovers, menus). */
+  --shadow-sm: 0 1px 0 rgb(12 23 34 / 0.04);
+  --shadow-md: 0 1px 2px rgb(12 23 34 / 0.06);
+  --shadow-lg: 0 4px 10px -4px rgb(12 23 34 / 0.12);
+  --shadow-xl: 0 12px 24px -8px rgb(12 23 34 / 0.16);
 }

@@ -220,13 +220,13 @@ describe('VfkDataTable', () => {
     const wrapper = mount(VfkDataTable, {
       props: {
         columns: [{ key: 'status', label: 'Status' }],
-        rows: [{ status: 'eingereicht' }],
+        rows: [{ status: 'submitted' }],
       },
       slots: {
         'cell-status': (slotProps: { row: Record<string, unknown>; value: unknown }) =>
           h('strong', `${slotProps.value}-${slotProps.row.status}`),
       },
     })
-    expect(wrapper.find('tbody td strong').text()).toBe('eingereicht-eingereicht')
+    expect(wrapper.find('tbody td strong').text()).toBe('submitted-submitted')
   })
 })

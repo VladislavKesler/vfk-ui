@@ -2,28 +2,28 @@
 /**
  * VfkStatusBadge — semantic status indicator built on VfkBadge.
  *
- * @prop {'eingereicht'|'ausstehend'|'fehlgeschlagen'} status - The semantic status to display.
- * @prop {string} [label] - Optional custom label; defaults to the German status text.
+ * @prop {'submitted'|'pending'|'failed'} status - The semantic status to display.
+ * @prop {string} [label] - Optional custom label; defaults to the status text.
  *
  * @example
- * <VfkStatusBadge status="eingereicht" />
- * <VfkStatusBadge status="fehlgeschlagen" label="Fehlgeschlagen am 10.06.2026" />
+ * <VfkStatusBadge status="submitted" />
+ * <VfkStatusBadge status="failed" label="Failed on 2026-06-10" />
  */
 
 import { computed } from 'vue'
 import VfkBadge from '@/components/elements/vfk-badge/VfkBadge.vue'
 
 interface Props {
-  status: 'eingereicht' | 'ausstehend' | 'fehlgeschlagen'
+  status: 'submitted' | 'pending' | 'failed'
   label?: string
 }
 
 const props = defineProps<Props>()
 
 const statusConfig: Record<Props['status'], { label: string; variant: 'info' | 'warning' | 'danger' }> = {
-  eingereicht: { label: 'Eingereicht', variant: 'info' },
-  ausstehend: { label: 'Ausstehend', variant: 'warning' },
-  fehlgeschlagen: { label: 'Fehlgeschlagen', variant: 'danger' },
+  submitted: { label: 'Submitted', variant: 'info' },
+  pending: { label: 'Pending', variant: 'warning' },
+  failed: { label: 'Failed', variant: 'danger' },
 }
 
 const variant = computed(() => statusConfig[props.status].variant)

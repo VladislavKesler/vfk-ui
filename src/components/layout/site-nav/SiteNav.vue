@@ -2,9 +2,12 @@
 /**
  * SiteNav — grouped sidebar navigation for the vfk-ui component demo site.
  *
- * Renders three labelled groups (Elements, Fragments, Layout), each containing
- * RouterLinks to the corresponding demo route. The active link is styled via
- * .router-link-active. The nav is scrollable when content overflows.
+ * Renders labelled groups (Elements, Fragments, ...), each containing
+ * RouterLinks to the corresponding demo route. Only components with a live
+ * registry entry (see ElementPage/FragmentPage/LayoutPage) are listed —
+ * unimplemented components are omitted until their preview exists.
+ * The active link is styled via .router-link-active. The nav is scrollable
+ * when content overflows.
  *
  * No props. No emits.
  *
@@ -17,75 +20,13 @@ const groups = [
     id: 'elements',
     label: 'Elements',
     basePath: '/elements',
-    items: [
-      'badge',
-      'button',
-      'card',
-      'chart',
-      'checkbox',
-      'date-picker',
-      'divider',
-      'editor',
-      'form-field',
-      'form-send-indicator',
-      'grid',
-      'headline',
-      'icon',
-      'link',
-      'list',
-      'list-item',
-      'load-indicator',
-      'logo',
-      'picture',
-      'rich-text',
-      'select',
-      'textarea',
-      'textfield',
-      'timer-button',
-      'toggle',
-      'tooltip',
-    ],
+    items: ['badge', 'button', 'date-picker', 'textfield', 'toggle'],
   },
   {
     id: 'fragments',
     label: 'Fragments',
     basePath: '/fragments',
-    items: [
-      'alert',
-      'card',
-      'data-table',
-      'headline-text',
-      'metrics-card',
-      'notification',
-      'notification-container',
-      'progress-bar',
-      'segment-control',
-      'status-badge',
-      'sub-navigation-card',
-      'teaser-card-contact',
-      'teaser-card-icon',
-      'teaser-card-image-full',
-      'teaser-card-image-text',
-      'teaser-card-text-only',
-    ],
-  },
-  {
-    id: 'layout',
-    label: 'Layout',
-    basePath: '/layout',
-    items: [
-      'grid-structure',
-      'page-breadcrumb',
-      'page-burger-button',
-      'page-dialog',
-      'page-footer',
-      'page-header',
-      'page-menu',
-      'page-menu-list',
-      'page-menu-list-item',
-      'page-menu-overlay',
-      'page-module',
-    ],
+    items: ['alert', 'card', 'data-table', 'metrics-card', 'notification', 'status-badge'],
   },
 ]
 </script>

@@ -34,7 +34,7 @@
 
 ## Phase 4 – Fragments
 
-- [x] StatusBadge — extends Badge with semantic states: eingereicht, ausstehend, fehlgeschlagen
+- [x] StatusBadge — extends Badge with semantic states: submitted, pending, failed
 - [x] MetricsCard — KPI display with label, value, optional delta/trend indicator
 - [x] DataTable — sortable, paginated table; used for the Audit-Log view
 

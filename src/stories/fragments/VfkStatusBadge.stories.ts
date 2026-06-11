@@ -5,24 +5,24 @@ const meta: Meta<typeof VfkStatusBadge> = {
   component: VfkStatusBadge,
   tags: ['autodocs'],
   args: {
-    status: 'eingereicht',
+    status: 'submitted',
   },
 }
 export default meta
 type Story = StoryObj<typeof VfkStatusBadge>
 
-export const Eingereicht: Story = {
-  args: { status: 'eingereicht' },
+export const Submitted: Story = {
+  args: { status: 'submitted' },
 }
 
-export const Ausstehend: Story = {
-  args: { status: 'ausstehend' },
+export const Pending: Story = {
+  args: { status: 'pending' },
 }
 
-export const Fehlgeschlagen: Story = {
-  args: { status: 'fehlgeschlagen' },
+export const Failed: Story = {
+  args: { status: 'failed' },
 }
 
 export const CustomLabel: Story = {
-  args: { status: 'fehlgeschlagen', label: 'Fehlgeschlagen am 10.06.2026' },
+  args: { status: 'failed', label: 'Failed on 2026-06-10' },
 }

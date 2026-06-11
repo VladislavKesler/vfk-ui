@@ -3,35 +3,35 @@ import { describe, it, expect } from 'vitest'
 import VfkStatusBadge from '@/components/fragments/vfk-status-badge/VfkStatusBadge.vue'
 
 describe('VfkStatusBadge', () => {
-  it('renders the German label for "eingereicht"', () => {
-    const wrapper = mount(VfkStatusBadge, { props: { status: 'eingereicht' } })
-    expect(wrapper.text()).toBe('Eingereicht')
+  it('renders the label for "submitted"', () => {
+    const wrapper = mount(VfkStatusBadge, { props: { status: 'submitted' } })
+    expect(wrapper.text()).toBe('Submitted')
   })
 
-  it('maps "eingereicht" to the info variant', () => {
-    const wrapper = mount(VfkStatusBadge, { props: { status: 'eingereicht' } })
+  it('maps "submitted" to the info variant', () => {
+    const wrapper = mount(VfkStatusBadge, { props: { status: 'submitted' } })
     expect(wrapper.find('.vfk-badge--info').exists()).toBe(true)
   })
 
-  it('maps "ausstehend" to the warning variant', () => {
-    const wrapper = mount(VfkStatusBadge, { props: { status: 'ausstehend' } })
+  it('maps "pending" to the warning variant', () => {
+    const wrapper = mount(VfkStatusBadge, { props: { status: 'pending' } })
     expect(wrapper.find('.vfk-badge--warning').exists()).toBe(true)
   })
 
-  it('maps "fehlgeschlagen" to the danger variant', () => {
-    const wrapper = mount(VfkStatusBadge, { props: { status: 'fehlgeschlagen' } })
+  it('maps "failed" to the danger variant', () => {
+    const wrapper = mount(VfkStatusBadge, { props: { status: 'failed' } })
     expect(wrapper.find('.vfk-badge--danger').exists()).toBe(true)
   })
 
   it('allows overriding the displayed label', () => {
     const wrapper = mount(VfkStatusBadge, {
-      props: { status: 'fehlgeschlagen', label: 'Fehlgeschlagen am 10.06.2026' },
+      props: { status: 'failed', label: 'Failed on 2026-06-10' },
     })
-    expect(wrapper.text()).toBe('Fehlgeschlagen am 10.06.2026')
+    expect(wrapper.text()).toBe('Failed on 2026-06-10')
   })
 
   it('has role="status"', () => {
-    const wrapper = mount(VfkStatusBadge, { props: { status: 'ausstehend' } })
+    const wrapper = mount(VfkStatusBadge, { props: { status: 'pending' } })
     expect(wrapper.attributes('role')).toBe('status')
   })
 })

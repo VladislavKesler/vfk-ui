@@ -69,10 +69,10 @@ export const AuditLog: Story = {
       { key: 'status', label: 'Status', sortable: true },
     ],
     rows: [
-      { timestamp: '2026-06-10 09:14', user: 'a.mendes', action: 'Login', status: 'eingereicht' },
-      { timestamp: '2026-06-10 09:02', user: 'b.costa', action: 'Export report', status: 'fehlgeschlagen' },
-      { timestamp: '2026-06-09 17:45', user: 'c.wei', action: 'Update settings', status: 'ausstehend' },
-      { timestamp: '2026-06-09 14:30', user: 'a.mendes', action: 'Delete record', status: 'eingereicht' },
+      { timestamp: '2026-06-10 09:14', user: 'a.mendes', action: 'Login', status: 'submitted' },
+      { timestamp: '2026-06-10 09:02', user: 'b.costa', action: 'Export report', status: 'failed' },
+      { timestamp: '2026-06-09 17:45', user: 'c.wei', action: 'Update settings', status: 'pending' },
+      { timestamp: '2026-06-09 14:30', user: 'a.mendes', action: 'Delete record', status: 'submitted' },
     ],
   },
   render: (args) => ({

@@ -1,7 +1,8 @@
 :root {
-  /* Families */
-  --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-family-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+  /* Families — IBM Plex: engineered, technical, precise */
+  --font-family-base: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --font-family-display: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
 
   /* Size scale */
   --font-size-xs: 0.75rem;    /* 12px */
@@ -24,8 +25,8 @@
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.75;
 
-  /* Letter spacing */
-  --letter-spacing-tight: -0.025em;
+  /* Letter spacing — Meridian sets display tight, mono/labels wide */
+  --letter-spacing-tight: -0.02em;
   --letter-spacing-normal: 0em;
-  --letter-spacing-wide: 0.05em;
+  --letter-spacing-wide: 0.08em;
 }

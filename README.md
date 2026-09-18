@@ -32,6 +32,36 @@ in [`src/styles/tokens/`](src/styles/tokens/) as CSS Custom Properties — see
 loaded via `@fontsource/ibm-plex-sans` and `@fontsource/ibm-plex-mono`,
 imported once in [`src/main.ts`](src/main.ts).
 
+## Library Usage
+
+Consuming apps install directly from GitHub (this package is `private: true`,
+not on the npm registry):
+
+```bash
+npm install github:VladislavKesler/vfk-ui#main
+```
+
+`npm install` runs the `prepare` script, which builds `dist/` (component
+bundle + rolled-up types) on the fly — no separate build step needed on the
+consumer side.
+
+```ts
+import { VfkButton, VfkCard } from 'vfk-ui'
+import 'vfk-ui/style.css' // design tokens, reset, component styles
+```
+
+Fonts (`@fontsource/ibm-plex-sans`, `@fontsource/ibm-plex-mono`) are **not**
+bundled into `style.css` — inlining them would add >1MB of base64. Consumers
+load the weights they need themselves, e.g.:
+
+```ts
+import '@fontsource/ibm-plex-sans/400.css'
+import '@fontsource/ibm-plex-mono/400.css'
+```
+
+Only `elements/` and `fragments/` components are exported. `layout/`
+components such as `SiteNav` are internal to this repo's demo site.
+
 ## Development
 
 | Command | Description |
@@ -39,7 +69,8 @@ imported once in [`src/main.ts`](src/main.ts).
 | `npm run dev` | Start the Vite dev server |
 | `npm run storybook` | Launch Storybook component explorer |
 | `npm run test` | Run Vitest test suite |
-| `npm run build` | Build the library for distribution |
+| `npm run build` | Build the demo/Storybook app |
+| `npm run build:lib` | Build the distributable package (`dist/`) consumers install |
 
 ## Contributing
 

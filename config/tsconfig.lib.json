@@ -1,0 +1,16 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": [
+    "../env.d.ts",
+    "../src/index.ts",
+    "../src/components/elements/**/*",
+    "../src/components/fragments/**/*"
+  ],
+  "exclude": ["../src/**/__tests__/*", "../src/**/*.spec.ts", "../src/**/*.stories.ts"],
+  "compilerOptions": {
+    "rootDir": "..",
+    "paths": {
+      "@/*": ["../src/*"]
+    }
+  }
+}
